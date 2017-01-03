@@ -1,1 +1,1 @@
-docker build --no-cache -t u16 -f Dockerfile-16 ./
+docker build --no-cache -f Dockerfile-16 -t pmav99/u16:latest ./

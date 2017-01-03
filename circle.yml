@@ -1,0 +1,17 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build --rm=false -f Dockerfile-14 -t pmav99/u14:latest ./
+    - docker build --rm=false -f Dockerfile-16 -t pmav99/u16:latest ./
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push pmav99/u14:latest
+      - docker push pmav99/u16:latest
