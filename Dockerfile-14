@@ -1,0 +1,47 @@
+FROM ubuntu:trusty
+MAINTAINER Panos Mavrogiorgos otinanai90@yopmail.com
+
+# install apt-fast
+RUN apt-get update && \
+    apt-get install \
+        -y \
+        --no-install-recommends \
+        --no-install-suggests \
+        software-properties-common && \
+    add-apt-repository -y ppa:saiarcot895/myppa && \
+    apt-get update && \
+    apt-get install \
+        -y \
+        --no-install-recommends \
+        --no-install-suggests \
+        apt-fast && \
+    apt-fast install \
+        -y \
+        --no-install-recommends \
+        --no-install-suggests \
+        build-essential \
+        libcurl4-openssl-dev \
+        libffi-dev \
+        libssl-dev \
+        libpq-dev \
+        git \
+        vim \
+        curl \
+        wget \
+        ruby \
+        python \
+        python-dev \
+        ca-certificates \
+        python-pip \
+        zsh && \
+    # cleanup
+    #apt-get autoremove -y && \
+    #apt-get clean && \
+    #rm -rf /var/lib/apt/lists/* \
+           #/var/tmp/* \
+           #/tmp/*
+    git clone https://github.com/pmav99/dotfiles.git /root/dotfiles && \
+    /root/dotfiles/install_zsh.sh && \
+    chsh -s `which zsh`
+
+ENTRYPOINT ["/bin/zsh"]
