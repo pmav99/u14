@@ -34,6 +34,7 @@ RUN apt-get update && \
         python-dev \
         ca-certificates \
         python-pip \
+        silversearcher-ag  \
         zsh && \
     # cleanup
     #apt-get autoremove -y && \
