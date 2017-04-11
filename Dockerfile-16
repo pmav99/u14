@@ -29,6 +29,7 @@ RUN apt-get update \
         curl \
         wget \
         ruby \
+        less \
         python \
         python-dev \
         ca-certificates \
