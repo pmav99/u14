@@ -45,6 +45,8 @@ RUN apt-get update \
  && git clone https://github.com/pmav99/dotfiles.git /root/dotfiles \
  && /root/dotfiles/install_zsh.sh \
  && chsh -s `which zsh` \
- && mkdir -p ~/.wheelhouse
+ && mkdir -p ~/.wheelhouse \
+ # locale
+ && locale-gen en_US en_US.UTF-8
 
 ENTRYPOINT ["/bin/zsh"]
