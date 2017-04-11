@@ -33,7 +33,6 @@ RUN apt-get update \
         python \
         python-dev \
         ca-certificates \
-        python-pip \
         silversearcher-ag \
         zsh \
  # cleanup
@@ -46,6 +45,8 @@ RUN apt-get update \
  && /root/dotfiles/install_zsh.sh \
  && chsh -s `which zsh` \
  && mkdir -p ~/.wheelhouse \
+ && curl -L https://bootstrap.pypa.io/get-pip.py | python2 \
+ && curl -L https://bootstrap.pypa.io/get-pip.py | python3 \
  # locale
  && locale-gen en_US en_US.UTF-8
 
