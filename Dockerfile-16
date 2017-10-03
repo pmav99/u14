@@ -20,6 +20,7 @@ RUN apt-get update \
         --no-install-recommends \
         --no-install-suggests \
         build-essential \
+        locales \
         libcurl4-openssl-dev \
         libffi-dev \
         libssl-dev \
