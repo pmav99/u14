@@ -27,6 +27,7 @@ RUN apt-get update \
         libpq-dev \
         git \
         vim \
+        sudo \
         curl \
         wget \
         ruby \
